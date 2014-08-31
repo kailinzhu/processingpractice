@@ -1,0 +1,79 @@
+color col;
+color shapeCol;
+
+PVector btnPos;
+int btnWidth;
+int btnHeight;
+
+PVector circbtnPos;
+int circbtnR;
+
+int circXSpeed;
+int circYSpeed;
+
+
+void setup(){
+  size(640, 480);
+  col =  color(255, 255, 0);
+  
+  btnPos = new PVector();
+  btnPos.x = width/2;
+  btnPos.y = height/2;
+  btnWidth = int(random(50, 100));
+  btnHeight = int(random(25, 50));
+  
+  circbtnPos = new PVector(100,150);
+  circbtnR = int(random(50, 100));
+  
+  circXSpeed = 4;
+  circYSpeed = 2;
+  
+  shapeCol = color(random(255), random(255), random(255));
+  /*RANDOM 
+      random(high)
+      random(low, high)
+      To convert a floating-point random number to an integer, 
+      use the int() function.
+  */
+  
+}
+
+
+
+void draw(){ 
+
+  background(col);
+  fill(shapeCol);
+  /*if(mousePressed){
+    //check to see if out mouse is over button
+    if((mouseX > btnPos.x) && (mouseX < (btnPos.x + btnWidth)) && (mouseY > btnPos.y) && (mouseX > (btnPos.y + btnHeight))){
+      fill(random(255));     
+    }
+  }
+
+  rect(btnPos.x, btnPos.y, btnWidth, btnHeight);
+  */
+  
+  circbtnPos.x += circXSpeed;
+  circbtnPos.y += circYSpeed;
+  
+  if(circbtnPos.x > width || circbtnPos.x < 0){
+     circXSpeed = -circXSpeed;
+  }
+  
+  if(circbtnPos.y > height || circbtnPos.y < 0){
+     circYSpeed = -circYSpeed;
+  }
+  
+  
+  if(dist(circbtnPos.x, circbtnPos.y, mouseX, mouseY) <= circbtnR){
+   // fill(0);
+    if(mousePressed){
+      fill(255,0,0);
+      println("you got it");
+    }
+  }
+  
+  ellipse(circbtnPos.x, circbtnPos.y, circbtnR,circbtnR);
+  
+}
