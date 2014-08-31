@@ -28,7 +28,7 @@ keyPressed
 PVector*/
 
 
- col;
+col;
 color shapeCol;
 
 PVector btnPos;
