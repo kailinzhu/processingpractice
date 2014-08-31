@@ -1,4 +1,34 @@
-color col;
+/*Bootcamp-Beginning Processing:
+- Comparing Processing, Javascript, C++, C#
+- Setting Processing environment.
+- Data type
+int
+float
+string
+boolean
+color
+- Basic functions 
+background()
+size()
+frameRate()
+setup()
+draw()
+fill()
+rect()
+ellipse()
+println()
+random()
+dis()
+int()
+- System variable
+mouseX
+mouseY
+mousePressed
+keyPressed
+PVector*/
+
+
+ col;
 color shapeCol;
 
 PVector btnPos;
