@@ -1,3 +1,10 @@
+/*2nd Day in Bootcamp - draw 500 bouncing balls.
+-review content yesterday
+-how to use array
+-how to write a function*/
+
+
+
 PVector manyPos[];
 float circXPos[];
 float circYPos[];
@@ -59,3 +66,4 @@ void draw(){
   }
 }
   
+
