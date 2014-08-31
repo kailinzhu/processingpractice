@@ -1,0 +1,61 @@
+PVector manyPos[];
+float circXPos[];
+float circYPos[];
+float xSpeeds[];
+float ySpeeds[];
+color shapeCol[];
+
+void setup(){
+  size(500,500);
+  
+  
+  
+  circXPos = new float[100];
+  circYPos = new float[circXPos.length];
+  xSpeeds = new float[circXPos.length];
+  ySpeeds = new float[circYPos.length];
+  shapeCol = new color[circXPos.length];
+  
+  for(int i = 0; i < circXPos.length; i++){
+    circXPos[i]= i * 10;
+    circYPos[i] = random(height);
+    xSpeeds[i] = bigRandom(3,5);
+    ySpeeds[i] = bigRandom(-2, 2);
+    shapeCol[i] = color(int(random(255)), int(random(255)),int(random(255)),40);
+  }
+  
+}
+
+
+float bigRandom(float min, float max){ 
+  if(min < max){
+    float n = random(min, max);
+    return n;
+  }
+  else{
+    println("wrong num");
+    return 0;
+  }
+}
+
+void draw(){
+  
+  background(255);
+  int size = 20;
+  for(int i = 0; i < circXPos.length; i++){
+    circXPos[i] += xSpeeds[i];
+    circYPos[i] += ySpeeds[i];
+    
+    if(circXPos[i] < 0 || circXPos[i] > width){
+      xSpeeds[i] = -xSpeeds[i];
+    }
+    
+    if(circYPos[i] < 0 || circYPos[i] > height){
+      ySpeeds[i] = -ySpeeds[i];
+    }
+      
+    fill(shapeCol[i]);
+    ellipse(circXPos[i], circYPos[i], size, size);
+  }
+}
+  
